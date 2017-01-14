@@ -141,6 +141,7 @@
 				A5C308CE1E01F7B900D95234 /* Sources */,
 				A5C308CF1E01F7B900D95234 /* Frameworks */,
 				A5C308D01E01F7B900D95234 /* Resources */,
+				SWIFCLEANCUSTOMRUNSCRIPT /* Swift-Clean Run Script */,
 			);
 			buildRules = (
 			);
@@ -198,7 +199,7 @@
 				TargetAttributes = {
 					A5C308D11E01F7B900D95234 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = THP5EV5EJ9;
+						DevelopmentTeam = U6J8328WE2;
 						ProvisioningStyle = Automatic;
 					};
 					A5C308E51E01F7B900D95234 = {
@@ -262,6 +263,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		SWIFCLEANCUSTOMRUNSCRIPT /* Swift-Clean Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift-Clean Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "if [[ -z ${SKIP_SWIFTCLEAN} || ${SKIP_SWIFTCLEAN} != 1 ]]; then\nif [[ -d \"${LOCAL_APPS_DIR}/Swift-Clean.app\" || -d \"${LOCAL_APPS_DIR}/Swift-Clean.app\" ]]; then \n\"${LOCAL_APPS_DIR}\"/Swift-Clean.app/Contents/Resources/SwiftClean.app/Contents/MacOS/SwiftClean \"${SRCROOT}\"?@autoFix \nelse\necho \"warning: You have to install and set up Swift-Clean to use its features!\" \nfi\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5C308CE1E01F7B900D95234 /* Sources */ = {
@@ -414,7 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = THP5EV5EJ9;
+				DEVELOPMENT_TEAM = U6J8328WE2;
 				INFOPLIST_FILE = CodeStyleExercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.CodeStyleExercise;
@@ -427,7 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = THP5EV5EJ9;
+				DEVELOPMENT_TEAM = U6J8328WE2;
 				INFOPLIST_FILE = CodeStyleExercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.CodeStyleExercise;
