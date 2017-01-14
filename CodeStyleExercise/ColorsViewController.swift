@@ -13,7 +13,7 @@ final class ColorsViewController: UIViewController, UICollectionViewDataSource, 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var colorCountTextField: UITextField!
     
-    public var ct: Int? = 12
+    public var colorsCount: Int? = 12
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +23,15 @@ final class ColorsViewController: UIViewController, UICollectionViewDataSource, 
         self.colorCountTextField.placeholder = "12"
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ct ?? 0
+        return colorsCount ?? 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ColorsCollectionViewCell
-        cell.configureCellWithColor(color: random_ui_color())
+        cell.configureCellWithColor(color: .randomColor())
         
         return cell
     }
@@ -58,16 +54,18 @@ final class ColorsViewController: UIViewController, UICollectionViewDataSource, 
     
     // MARK: - IBActions
     
-    @IBAction func userDidTapOnTheBackgroundView(_ sender: UITapGestureRecognizer) {
+    @IBAction func handleBackgroundTap(_ sender: UITapGestureRecognizer) {
         colorCountTextField.resignFirstResponder()
-        ct = Int(colorCountTextField.text ?? "")
+        colorsCount = Int(colorCountTextField.text ?? "")
     }
     
-    @IBAction func btnPressed(_ sender: Any) {
+    @IBAction func generateButtonPressed(_ sender: Any) {
         collectionView.reloadData()
     }
-    
-    public func random_ui_color() -> UIColor {
+}
+
+extension UIColor {
+    public static func randomColor() -> UIColor {
         let red = CGFloat(arc4random_uniform(256)) / 255
         let green = CGFloat(arc4random_uniform(256)) / 255
         let blue = CGFloat(arc4random_uniform(256)) / 255
